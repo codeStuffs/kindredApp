@@ -1,0 +1,59 @@
+<!--
+  Generated template for the JoinFamily page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Join Your Family</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="action-sheets-basic-page">
+  <ion-fab top right edge>
+    <button ion-fab color="light" mini (tap)="createFamily()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <div *ngIf="!userId && !families" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="userId && families">
+    <ion-searchbar [(ngModel)]="searchFam" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+
+    <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+    </div>
+
+    <ion-list>
+      <ion-item *ngFor="let family of families ">
+        The {{family.name}}'s
+
+        <div *ngFor="let admin of family.administrators | keys" item-right>
+          <button ion-button *ngIf="userId === admin.key" (tap)="manageFamily(family)" outline color="limegreen">
+            Manage
+          </button>
+        </div>
+
+        <div *ngIf="family.members" item-right>
+
+          <button *ngIf="checkMember(family.members) == false" item-right ion-button color="limegreen" outline
+                  (tap)="sendRequest(family)">
+            Send Request
+          </button>
+          <button *ngIf="ifAccepted(family.members) == false" item-right ion-button color="limegreen" outline
+                  (tap)="revokeRequest(family)">
+            Requested
+          </button>
+
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

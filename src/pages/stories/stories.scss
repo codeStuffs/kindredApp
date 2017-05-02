@@ -1,0 +1,284 @@
+page-stories {
+
+  .spinner-container {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+  ion-card.my-card {
+   width: calc(100% - 40px - 20px);
+    background-color: #f4f4f4;
+  }
+  ion-card.timeline-card {
+    margin: 0 0 0 0;
+    width: calc(100% - 0px);
+    border-radius: 2px;
+    font-size: 1.4rem;
+    background: inherit;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+  }
+  ion-card.my-card p, .card-title-md {
+    color: #0a0909;
+  }
+
+  ion-card-content.card-content-md, .timeline-body-content{
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  ion-card.my-card p{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+  ion-card.card-title, .card-title-md, .timeline-body-head{
+    padding-top: 0px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+
+  .fab-md-limegreen {
+    color: #ffffff;
+    background-color: rgba(86, 202, 150, 0.48);
+    border: #56ca96 5px solid;
+  }
+  /*card-md {
+      margin: 10px 10px 10px 10px;
+      width: calc(90% - 20px);
+       margin-right: 22px;
+      border-radius: 2px;
+      font-size: 1.4rem;
+      background: #f4f4f4;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }*/
+  /***
+Timeline
+***/
+  .timeline {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .timeline:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 4px;
+    background: #f5f6fa;
+    top: 0px;
+    bottom: 0px;
+    margin-left: 25px;
+  }
+  .timeline .timeline-item {
+    margin: 0;
+    padding: 0;
+  }
+  .timeline .timeline-badge {
+    float: left;
+    position: relative;
+    padding-right: 30px;
+    /*height: 80px;
+    width: 80px; */
+  }
+  .timeline .timeline-badge-userpic {
+    width: 50px;
+    height: 50px;
+    border: 2px #f5f6fa solid;
+    border-radius: 50% !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: white;
+    background-image: url(../assets/leaf.png);
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+  }
+  .timeline .timeline-badge-userpic img {
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+    vertical-align: middle !important;
+    background-color: white
+  }
+  .timeline .timeline-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #f5f6fa;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+    padding-top: 30px;
+    padding-left: 22px;
+  }
+  .timeline .timeline-icon i {
+    font-size: 34px;
+  }
+  .timeline .timeline-body {
+    position: inherit;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 70px;
+    background-color: #f5f6fa;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .timeline .timeline-body:before, .timeline .timeline-body:after {
+    content: " ";
+    display: table;
+  }
+  .timeline .timeline-body:after {
+    clear: both;
+  }
+  .timeline .timeline-body-arrow {
+    position: absolute;
+   /* top: 10px;*/
+    left: 46px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 14px 14px 14px 0;
+    border-color: transparent #f5f6fa transparent transparent;
+  }
+  .timeline .timeline-body-head {
+    margin-bottom: 10px;
+  }
+  .timeline .timeline-body-head-caption {
+
+  }
+  .timeline .timeline-body-title {
+    font-size: 16px;
+    font-weight: 600;
+    float: left;
+    text-decoration: none;
+  }
+  .timeline .timeline-body-alerttitle {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .timeline .timeline-body-time {
+    font-size: 14px;
+    /* margin-left: 19px; */
+    float: right;
+  }
+  .timeline .timeline-body-head-actions {
+    float: right;
+  }
+  .timeline .timeline-body-head-actions .btn-group {
+    margin-top: -2px;
+  }
+  .timeline .timeline-body-content {
+
+  }
+  .timeline .timeline-body-img {
+    width: 100px;
+    height: 100px;
+    margin: 5px 20px 0 0px;
+  }
+  .timeline.white-bg:before {
+    background: #fff;
+  }
+  .timeline.white-bg .timeline-badge-userpic {
+    border-color: #fff;
+  }
+  .timeline.white-bg .timeline-icon {
+    background-color: #fff;
+  }
+  .timeline.white-bg .timeline-body {
+    background-color: #fff;
+  }
+  .timeline.white-bg .timeline-body-arrow {
+    border-color: transparent #fff transparent transparent;
+  }
+
+  @media (max-width: 768px) {
+    .timeline .timeline-body-head-caption {
+      width: 100%;
+    }
+    .timeline .timeline-body-head-actions {
+      float: left;
+      width: 100%;
+      margin-top: 0.999px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      border: 0;
+    }
+
+    .timeline .timeline-badge-userpic {
+      max-width: 60px;
+    }
+    .timeline:before {
+      margin-left: 19px;
+    }
+    .timeline .timeline-badge {
+      padding-right: 40px;
+      width: 60px;
+      height: 60px;
+    }
+    .timeline .timeline-badge-userpic {
+      width: 40px;
+      height: 40px
+    }
+    .timeline .timeline-icon {
+      width: 60px;
+      height: 60px;
+      padding-top: 23px;
+      padding-left: 18px;
+    }
+    .timeline .timeline-icon i {
+      font-size: 25px;
+    }
+    .timeline .timeline-body {
+      margin-left: 55px;
+    }
+    .timeline .timeline-body-arrow {
+     /* top: 10px;*/
+    }
+  }
+
+  @media (min-width: 600px) {
+
+    .timeline .timeline-body-head {
+      margin-bottom: 30px;
+    }
+    .timeline {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      margin-bottom: 30px;
+      margin-left: 25px;
+      margin-right: 45px;
+    }
+
+  }
+  @media (min-width: 1200px) {
+
+    .timeline .timeline-body-head {
+      margin-bottom: 30px;
+    }
+
+    .timeline {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      margin-bottom: 30px;
+      margin-left: 100px;
+      margin-right: 150px;
+    }
+
+    ion-card.timeline-card {
+      margin: 10px 10px 10px 10px;
+      width: calc(100% - 20px);
+      border-radius: 2px;
+      font-size: 1.4rem;
+      background: inherit;
+      box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
+    }
+
+  }
+}

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar *ngIf="searching">
+    <ion-searchbar
+      autofocus
+      class="search-bar"
+      [showCancelButton]="true"
+      (ionInput)="updateSubscription($event.target.value); searching=true;"
+      (ionClear)="updateSubscription(undefined); searching=false;">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="!searching">
+    <ion-title>Kins</ion-title>
+    <ion-buttons left>
+      <button ion-button class="dismiss-button" (click)="viewCtrl.dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button class="search-button" (tap)="searching = true">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!kins" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col col-4 col-sm-6 col-md-6 col-lg-3 *ngFor="let kin of kins | async">
+        <ion-card (tap)="kinTapped(kin)">
+          <div *ngIf="kin.photoUrl">
+            <img class="kin-avatar" [src]="kin.photoUrl">
+          </div>
+          <ion-card-content>
+            <ion-card-title class="card-title">{{kin.firstname }} {{kin.middleName || " " }} {{kin.lastName }}</ion-card-title>
+            <!-- <div class="card-subtitle">41 Listings</div> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

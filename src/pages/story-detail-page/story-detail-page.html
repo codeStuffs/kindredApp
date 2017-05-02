@@ -1,0 +1,30 @@
+<!--
+  Generated template for the ItemDetailPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Story Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-card  *ngIf="selectedStory" class="selected">
+  <div class="" *ngIf="selectedStory.other_content">
+    <img src="{{selectedStory.other_content}}"/>
+    </div>
+    <ion-card-content>
+      <ion-card-title>
+        {{selectedStory.owner}}
+      </ion-card-title>
+      <p>
+       {{selectedStory.body}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

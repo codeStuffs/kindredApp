@@ -1,0 +1,27 @@
+<!--
+  Generated template for the Images page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>[Jamabo]'s Photos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-grid>
+      <ion-row >
+        <ion-col col-4 col-sm-6 col-md-6 col-lg-3 *ngFor="let image of images" >
+          <ion-card (tap)="imageTapped(image)">
+               <img [src]="image.path">
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
+

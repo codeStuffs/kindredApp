@@ -1,0 +1,64 @@
+page-create-family {
+  .item-ios ion-icon[item-left], .item-ios ion-icon[item-right] {
+    margin-top: 34px;
+    margin-bottom: 8px;
+    margin-left: 0;
+  }
+
+  .list-md .item-input.input-has-focus:last-child {
+    border-bottom-color: #56ca96;
+    box-shadow: inset 0 -1px 0 0 #56ca96;
+  }
+  .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+    border-bottom-color: #56ca96;
+    box-shadow: inset 0 -1px 0 0 #56ca96;
+  }
+  .item-md ion-icon[item-left], .item-md ion-icon[item-right] {
+    margin-top: 34px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+  }
+  .item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input {
+    margin-left: 5px;
+  }
+  .item-md {
+    padding-left: 0px;
+    border-bottom: 2px solid #56ca96;
+  }
+
+  .item-ios.item-block .item-inner {
+    padding-right: 0px;
+    border-bottom: 0.55px solid #c8c7cc !important;
+  }
+  .item-ios [item-left] {
+    margin: 8px 10px 8px 0;
+  }
+  .item-ios {
+    padding-left: 0px;
+  }
+
+  .card-ios {
+    margin: 12px 5px 12px 6px;
+    width: calc(100% - 10px);
+    border-radius: 2px;
+    font-size: 1.4rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  .col {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .card-md {
+    margin: 10px 4px 10px 4px;
+    width: calc(100% - 4px);
+    border-radius: 2px;
+    font-size: 1.4rem;
+    background: #f4f4f4;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .input-has-focus .label-md[floating] {
+    color: #3b946c;
+  }
+}

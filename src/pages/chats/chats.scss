@@ -1,0 +1,173 @@
+page-chat {
+  .chat-picture {
+    border-radius: 50%;
+    width: 50px;
+    min-height: 50px;
+    float: left;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: white;
+    background-image: url(../assets/leaf.png);
+  }
+
+  ion-list {
+    margin-top: 5px !important;
+  }
+
+  .label-ios {
+    margin: 1px 0px 0px 0;
+  }
+
+  button.item-md:not([detail-none]) .item-inner, a.item-md:not([detail-none]) .item-inner {
+    padding-right: 32px;
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px 14px;
+    margin-bottom: 0.9999px;
+    /* padding-right: 32px; */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0.66);
+    background-image: url(../assets/leaf.png);
+    border-radius: 10px 0px 0px 10px;
+  }
+  .label-ios {
+
+    .chat-wrapper {
+      background-color: white;
+      margin-left: 60px;
+      width: 85%;
+      display: block;
+      float: left;
+      position: absolute;
+      height: 60px;
+      border-radius: 7px 0px 0px 13px;
+    }
+  }
+
+  .item-ios.activated {
+    background-color: #56ca96;
+    transition-duration: 0ms;
+    z-index: 99999999;
+    /* position: absolute; */
+  }
+  .label-md {
+    margin: 3px 0px 5px 0;
+  }
+  .list-ios, .list-md ion-item-sliding {
+    background-color: inherit;
+  }
+  /*
+    .label-ios {
+     margin: 13px 0px 8px 0;
+  }*/
+  .list-ios ion-item-sliding {
+    background-color: transparent;
+  }
+  .item-ios, .item-md {
+    position: relative;
+    padding-right: 0;
+    padding-left: 3px;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-transform: none;
+    color: #000;
+    background-color: inherit;
+    box-shadow: none;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .item-ios.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0.55px solid #c8c7cc;
+    border-bottom-left-radius: 25px;
+  }
+  .list-ios > .item-wrapper:last-child .item-block {
+    border-bottom-left-radius: 30.99px;
+  }
+  /*.item-ios {
+      position: relative;
+      padding-right: 0;
+      padding-left: 9px;
+      font-size: 1.6rem;
+      font-weight: normal;
+      text-transform: none;
+      color: #000;
+       background-color: inherit;
+      box-shadow: none;
+      transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  */
+  .item-ios, .item-md.item-block .item-inner {
+    padding-right: 0;
+    border-bottom: 0px solid transparent;
+  }
+  /*.list-ios,.list-md ion-item-options .button {
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin: 13px 0;
+      height: calc(100% - 20px);
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      box-sizing: border-box;
+  }*/
+  .chat-wrapper {
+    background-color: white;
+    margin-left: 60px;
+    width: 83%;
+    display: block;
+    float: left;
+    position: absolute;
+    height: 60px;
+    border-radius: 7px 0px 0px 7px;
+  }
+  .chat-info {
+    float: left;
+    margin: 10px 0 0 20px;
+
+    .last-message-timestamp {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 12px;
+      color: #212121;
+    }
+  }
+  .chat-body-arrow {
+    border-color: transparent #fff transparent transparent;
+    position: absolute;
+    top: 17px;
+    left: 55px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 14px 14px 14px 0;
+  }
+
+  @media(min-width: 1200px) {
+    button.item-md:not([detail-none]) .item-inner, a.item-md:not([detail-none]) .item-inner {
+      /*z-index: 1;*/
+      /* padding-right: 32px; */
+      margin-bottom: 0.99999px;
+      background-repeat: no-repeat;
+      background-position: right 40px center;
+      background-size: 14px 14px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: rgba(255, 255, 255, 0.66);
+      background-image: url(../assets/leaf.png);
+      border-radius: 10px 0px 0px 10px;
+    }
+
+  }
+
+}

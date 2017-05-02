@@ -1,0 +1,75 @@
+<!--
+  Generated template for the ChatsMessages page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar class="messages-page-navbar">
+    <ion-buttons>
+      <img class="chat-picture" [src]="picture">
+    </ion-buttons>
+
+    <ion-title class="chat-title">{{title}}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only class="attach-button">
+        <ion-icon name="attach"></ion-icon>
+      </button>
+      <button ion-button icon-only class="options-button">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="messages-page-content">
+  <ion-scroll scrollY="true" class="messages">
+    <div *ngIf="messagesDayGroups">
+      <div *ngFor="let day of messagesDayGroups | async" class="day-wrapper">
+
+        <div *ngFor="let message of day.messages" class="message-wrapper">
+          <!--*ngFor="let message of day.messages | objkeys"-->
+          <div *ngIf="message.ownership == 'other'">
+            <!--  <img  [class]="'avatar avatar-'+message.ownership" [src]="picture"> -->
+          </div>
+          <div [class]="'message message-' +message.ownership">
+            <!--<div class="message-content "></div>-->
+            <div *ngIf="message.type == 'text'" class="message-content message-content-text">{{message.content}}
+            </div>
+            <img *ngIf="message.type == 'picture'" [src]="message.content">
+            <span class="message-timestamp">{{message.createdAt | amDateFormat: 'hh:mmA' }}</span>
+            <span class="arrow"> </span>
+          </div>
+        </div>
+        <div *ngIf="!day.today" class="day-timestamp">{{day.timestamp}}</div>
+      </div>
+    </div>
+  </ion-scroll>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar class="messages-page-footer" position="bottom">
+    <ion-item class=" message-input">
+      <!--<ion-label color="limegreen">
+        Send Something...
+      </ion-label>-->
+      <ion-textarea auto-resize-text-area [formControl]="scrollControll" placeholder="Enter Message"
+                    [(ngModel)]="message"
+                    (keypress)="onInputKeypress($event)" class="message-editor">
+      </ion-textarea>
+    </ion-item>
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="message" class="message-editor-button" (click)="sendTextMessage()">
+        <ion-icon name="send"></ion-icon>
+      </button>
+
+      <!--
+      <button ion-button icon-only *ngIf="!message" class="message-editor-button">
+        <ion-icon name="mic"></ion-icon>
+      </button>
+      -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

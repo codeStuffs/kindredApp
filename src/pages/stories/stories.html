@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title [hidden]="searchActive">
+      Home
+    </ion-title>
+    <!-- <ion-searchbar (ionInput)="searchStory($event)">
+
+   </ion-searchbar>-->
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!stories" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+ <!-- <div *ngIf="!noFamilies" class="spinner-container">
+    <ion-item>Please join your family to view stories</ion-item>
+  </div>-->
+
+  <div class="timeline  white-bg ">
+    <!-- TIMELINE ITEM -->
+    <div class="timeline-item" *ngFor="let story of stories | async " (tap)="storyTapped($event, story)">
+      <div class="timeline-badge">
+        <img class="avatar timeline-badge-userpic" [src]="story.authorPhoto">
+      </div>
+      <ion-card class="my-card timeline-body">
+        <div class="timeline-body-arrow"></div>
+        <div class="timeline-card">
+          <ion-card-title class="timeline-body-head">
+            <div class="timeline-body-head-actions">
+              <a href="javascript:;" class="timeline-body-title font-blue-madison"> {{story.owner}}</a>
+              <span class="timeline-body-time font-grey-cascade">{{story.date_created | amTimeAgo }}</span>
+            </div>
+            <!--  <div class="timeline-body-head-actions"> </div> -->
+          </ion-card-title>
+          <div class="" *ngIf="story.other_content">
+            <img [src]="story.other_content"/>
+          </div>
+          <ion-card-content class="timeline-body-content ">
+
+            <p class="font-grey-cascade" style="text-align: justify;">
+              {{story.body}}
+
+            </p>
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </div>
+    <!-- END TIMELINE ITEM -->
+  </div>
+
+  <ion-fab right bottom>
+    <button ion-fab (press)="createPostTapped($event)" color="limegreen">
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

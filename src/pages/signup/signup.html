@@ -1,0 +1,81 @@
+<!--
+  Generated template for the Signup page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="login-content" padding>
+  
+  <form (ngSubmit)="signUp()" #registerForm="ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-list inset="">
+          <ion-item>
+            <ion-input type="text" placeholder="First name" name="firstName" [(ngModel)]="registerCredentials.name"
+                       aria-required="true" required>
+            </ion-input>
+            <ion-icon name="person" item-left color="limegreen"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Middle name" name="middleName" [(ngModel)]="registerCredentials.middleName"
+                       >
+            </ion-input>
+              <ion-icon name="person" item-left color="limegreen"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Surname" name="surname" [(ngModel)]="registerCredentials.surname"
+                       aria-required="true" required>
+            </ion-input>
+              <ion-icon name="person" item-left color="limegreen"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email"
+                       aria-required="true" required>
+            </ion-input>
+              <ion-icon name="mail" item-left color="limegreen"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password"
+                       aria-required="true" required>
+            </ion-input>
+              <ion-icon name="lock" item-left color="limegreen"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder="Confirm Password" name="confirmPassword" [(ngModel)]="registerCredentials.confirmPassword"
+                       aria-required="true" required>
+            </ion-input>
+              <ion-icon name="unlock" item-left color="limegreen"></ion-icon>
+          </ion-item>
+          <ion-item>
+            <ion-label>Date of Birth</ion-label>
+            <ion-datetime displayFormat="MMM DD, YYYY" name="dob" [(ngModel)]="registerCredentials.dob"></ion-datetime>
+              <ion-icon name="calendar" item-left color="limegreen"></ion-icon>
+          </ion-item>
+          <ion-item>
+           <ion-label>Gender</ion-label>
+            <ion-select name="gender" 
+            [(ngModel)]="registerCredentials.gender" aria-required='true' required>
+              <ion-option value="f" selected="true">Female</ion-option>
+             <ion-option value="m">Male</ion-option>
+             </ion-select>
+             <ion-icon name="male" color="limegreen" item-left></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button="" class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Submit</button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
