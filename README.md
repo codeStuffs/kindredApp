@@ -1,6 +1,6 @@
 ## Kindred App
 
-A personal project for a closed family socail network. 
+A personal project for a closed socail network for a family. 
 
 ### Markdown
 
