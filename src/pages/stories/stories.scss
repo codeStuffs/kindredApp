@@ -261,6 +261,17 @@ Timeline
     }
 
   }
+
+  @media (min-width: 1024px){
+    .timeline {
+      padding: 0;
+      position: relative;
+      margin: 0 150px 30px 100px;
+    }
+    .timeline .timeline-body-head-actions{
+      float: none;
+    }
+  }
   @media (min-width: 1200px) {
 
     .timeline .timeline-body-head {
@@ -276,7 +287,7 @@ Timeline
       margin-right: 150px;
     }
 
-    ion-card.timeline-card {
+    ion-card {
       margin: 10px 10px 10px 10px;
       width: calc(100% - 20px);
       border-radius: 2px;
