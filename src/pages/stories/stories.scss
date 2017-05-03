@@ -246,13 +246,18 @@ Timeline
     .timeline .timeline-body-head {
       margin-bottom: 30px;
     }
+
+    .timeline .timeline-badge{
+      padding-right: 10px;
+    }
+
+    .timeline .timeline-body-arrow{
+      left: 57px;
+    }
     .timeline {
-      margin: 0;
       padding: 0;
       position: relative;
-      margin-bottom: 30px;
-      margin-left: 25px;
-      margin-right: 45px;
+      margin: 0 45px 30px 25px;
     }
 
   }
