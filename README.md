@@ -1,7 +1,14 @@
 ## Kindred App
 
-A personal project for a closed socail network for a family. 
+A personal project for a closed social network for a family. 
 
+### Todo
+```
+- Fixed user photo upload
+- Commenting function
+- gallery Section
+- delete chat function
+```
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
