@@ -5,9 +5,16 @@ A personal project for a closed social network for a family.
 ### Todo
 ```
 - Fixed user photo upload
-- Commenting function
+- Comment method
 - gallery Section
-- delete chat function
+- delete chat method
+- add  like method
+- infinite scroll to chats and story page
+- add settings page
+- redesign the edit my info form.
+- add more fields to user preference
+- add image viewer.
+- add native page transition
 ```
 ### Markdown
 

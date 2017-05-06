@@ -24,7 +24,7 @@
       </h2>
     </ion-item>
     <div class="" *ngIf="selectedStory.mediaUrl">
-      <img src="{{selectedStory.mediaUrl}}"/>
+      <img (click)="viewPhoto(selectedStory.mediaUrl)" src="{{selectedStory.mediaUrl}}"/>
     </div>
     <ion-card-content>
 
@@ -34,7 +34,7 @@
     </ion-card-content>
     <ion-row>
       <ion-col>
-        <button ion-button icon-left clear small>
+        <button ion-button color="limegreen" icon-left clear small>
           <ion-icon name="thumbs-up"></ion-icon>
           <div class="likes" *ngIf="selectedStory.starCount > 1">
             {{selectedStory.starCount}} likes
@@ -47,7 +47,7 @@
 
       </ion-col>
       <ion-col>
-        <button ion-button color="primary" clear small icon-left>
+        <button ion-button color="limegreen" clear small icon-left>
           <ion-icon name='text'></ion-icon>
           4 Comments
         </button>
@@ -57,7 +57,10 @@
   <ion-card>
     <ion-list>
 
-      <ion-list-header>Comments</ion-list-header>
+      <ion-list-header>
+        Comments
+        <button ion-button item-right color="limegreen">Add Comment</button>
+      </ion-list-header>
 
       <ion-item>
         <ion-avatar item-left>
@@ -98,3 +101,29 @@
     </ion-list>
   </ion-card>
 </ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar class="comment-page-footer" position="bottom">
+    <ion-item class="comment-input">
+      <!--<ion-label color="limegreen">
+        Send Something...
+      </ion-label>-->
+      <ion-textarea name="commentInput" auto-resize-text-area  placeholder="Enter Comment"
+                   class="message-editor">
+      </ion-textarea>
+    </ion-item>
+    <ion-buttons end>
+      <button ion-button icon-only class="comment-editor-button">
+        <ion-icon name="send"></ion-icon>
+      </button>
+
+      <!--
+      <button ion-button icon-only *ngIf="!message" class="message-editor-button">
+        <ion-icon name="mic"></ion-icon>
+      </button>
+      -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

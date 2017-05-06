@@ -92,7 +92,7 @@ export class StoriesPage implements OnInit {
 
   }
 
-  loadedStories (myFamilies) {
+  private loadedStories (myFamilies) {
     // let stories = [];
     // code for just one family goes here......
     const uid = firebase.auth().currentUser.uid;
@@ -143,9 +143,7 @@ export class StoriesPage implements OnInit {
     }
   }
 
-  private createPostTapped (event) {
-    console.log(event);
-
+   createPostTapped (event) {
     let createPost = this.modalCtrl.create(CreatePostPage);
     createPost.present();
   }

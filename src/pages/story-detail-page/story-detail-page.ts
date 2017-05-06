@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
+import { PhotoViewer} from "@ionic-native/photo-viewer";
 
 /*
  Generated class for the ItemDetailPage page.
@@ -15,13 +16,21 @@ export class StoryDetailPage {
 
   selectedStory : any;
 
-  constructor (public navCtrl : NavController, public navParams : NavParams) {
+  constructor (public navCtrl : NavController, private photoViewer: PhotoViewer,
+               public navParams : NavParams) {
     this.selectedStory = navParams.get('story');
 
   }
 
   ionViewDidLoad () {
     console.log('Hello ItemDetailPage Page for real...');
+  }
+
+  viewPhoto(photo:string){
+    if(photo){
+      this.photoViewer.show(photo);
+    }
+    return;
   }
 
 }

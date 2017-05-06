@@ -30,6 +30,7 @@ import { CreateFamilyPage } from "../pages/create-family/create-family";
 import { JoinFamilyPage } from "../pages/join-family/join-family";
 
 import { InviteKinPage } from "../pages/invite-kin/invite-kin";
+import { PhotoViewer} from "@ionic-native/photo-viewer";
 // Import the AF2 Module
 import { AngularFireModule, AuthMethods, AuthProviders } from "angularfire2";
 import { FamilyService } from "../providers/family-service";
@@ -137,6 +138,7 @@ const myFirebaseAuthConfig = {
     Device,
     Camera,
     ImagePicker,
+    PhotoViewer,
     AuthService,
     StoriesService,
     GalleryService,
