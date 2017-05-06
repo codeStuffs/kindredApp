@@ -1,64 +1,54 @@
 import { Component, OnInit } from "@angular/core";
 import { Storage } from "@ionic/storage";
-import { Loading, LoadingController, NavController, NavParams, ModalController } from "ionic-angular";
+import { Loading, LoadingController, ModalController, NavController, NavParams } from "ionic-angular";
 import { StoryDetailPage } from "../story-detail-page/story-detail-page";
-import * as moment from "moment";
 import "rxjs/add/operator/map";
-
-import { Observable } from "rxjs/Observable";
-import { Subject } from "rxjs/Subject";
-import { Stories } from "../../models";
 import { CreatePostPage } from "../create-post/create-post";
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from "angularfire2";
+import { AngularFire } from "angularfire2";
 import { AuthService } from "../../providers/auth-service";
 import { StoriesService } from "../../providers/stories-service";
 import { FamilyService } from "../../providers/family-service";
-
+import firebase from "firebase";
 @Component({
-  selector: 'page-stories',
+  selector   : 'page-stories',
   templateUrl: 'stories.html'
 })
 
 
 export class StoriesPage implements OnInit {
-  loading: Loading;
-  selectedStory: any;
-  searchQuery: string = '';
+  loading : Loading;
+  selectedStory : any;
+  searchQuery : string = '';
 
-  searchActive: boolean;
-  story: string[];
-  stories: FirebaseListObservable<any>;
-  storiesTemp: any;
-  famCount: any;
-  dateSubject: Subject<any>;
-  noFamilies: any;
+  searchActive : boolean;
+  story : string[];
+  stories : any;
+  famCount : any;
+  noFamilies : any;
 
-  //infoObserver: any;
 
-  constructor(
-    private navCtrl: NavController, navParams: NavParams,
-    public loadingCtrl: LoadingController,
-    public storage: Storage,
-    public modalCtrl: ModalController,
-    public authService: AuthService,
-    private familyService: FamilyService,
-    private storyService: StoriesService,
-    private angFire: AngularFire,
-  ) {
+  constructor (private navCtrl : NavController, navParams : NavParams,
+               public loadingCtrl : LoadingController,
+               public storage : Storage,
+               public modalCtrl : ModalController,
+               public authService : AuthService,
+               private familyService : FamilyService,
+               private storyService : StoriesService,
+               private angFire : AngularFire,) {
 
-    this.searchActive = false;
-    this.searchActive = false;
+    this.searchActive  = false;
+    this.searchActive  = false;
     this.selectedStory = navParams.get('story');
 
   }
 
-  public currentUser: any;
+  public currentUser : any;
 
-  ngOnInit() {
+  ngOnInit () {
 
     this.authService.getUserInfo().then(data => {
       this.currentUser = data;
-      this.noFamilies = !!this.currentUser.families;
+      this.noFamilies  = !!this.currentUser.families;
 
     }).catch((error) => {
       console.log(error)
@@ -67,7 +57,7 @@ export class StoriesPage implements OnInit {
 
   }
 
-  showLoading(content) {
+  showLoading (content) {
     this.loading = this.loadingCtrl.create({
       content: content
     });
@@ -75,7 +65,7 @@ export class StoriesPage implements OnInit {
   }
 
 
-  initializeStories(): any {
+  initializeStories () : any {
     // get users from secure api end point
 
     this.familyService.getMyFamilies()
@@ -84,7 +74,7 @@ export class StoriesPage implements OnInit {
         for (let i in snapshot) {
           // code...
           myFamilies.push({
-            id: i,
+            id  : i,
             name: snapshot[i]
           })
         }
@@ -96,21 +86,49 @@ export class StoriesPage implements OnInit {
         console.log('okay');
 
       }).catch((error) => {
-        console.log(error);
-        return error;
-      });
+      console.log(error);
+      return error;
+    });
 
   }
 
-  loadedStories(myFamilies) {
+  loadedStories (myFamilies) {
     // let stories = [];
     // code for just one family goes here......
-    this.stories = this.storyService.loadStories(myFamilies);
+    const uid = firebase.auth().currentUser.uid;
+    if (uid !== "null" && myFamilies[0].id) {
+      const stories = this.angFire.database.list('/stories/' + myFamilies[0].id, {
+        query: {
+          orderByChild: 'date_created',
+          limitToLast : 10
+        }
+      });
+      stories.subscribe(story => {
 
+        const _stories : any = [];
+        console.log(story);
+        story.reverse();
 
+        story.forEach(storySnapshot => {
+          const id                = storySnapshot.userId;
+          storySnapshot.userPhoto = '';
+          this.angFire.database.object('/users/' + id + '/', {preserveSnapshot: true})
+            .subscribe(user => {
+              storySnapshot.authorPhoto = user.val().photoUrl;
+              storySnapshot.userPhoto   = user.val().photoUrl;
+              storySnapshot.owner       = user.val().firstname + " " + user.val().middleName + " " + user.val().lastName;
+            });
+          _stories.push(storySnapshot);
+        });
+        this.stories = _stories;
+
+      });//end subscribe
+
+    }//end if
   }
-  searchStory(ev: any) {
-    this.initializeStories();
+
+  searchStory (ev : any) {
+
 
     let val = ev.target.value;
 
@@ -125,14 +143,14 @@ export class StoriesPage implements OnInit {
     }
   }
 
-  private createPostTapped(event) {
+  private createPostTapped (event) {
     console.log(event);
 
     let createPost = this.modalCtrl.create(CreatePostPage);
     createPost.present();
   }
 
-  storyTapped(event, story) {
+  storyTapped (event, story) {
     console.log(story);
     this.navCtrl.push(StoryDetailPage, {
       story: story

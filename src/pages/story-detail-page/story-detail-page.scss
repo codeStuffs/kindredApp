@@ -1,6 +1,30 @@
 story-detail-page {
-ion-card.selected{
+ion-card.selected p{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 
+}
+
+ion-card >.card-content-md, .card-content-ios{
+    padding-top: 13px!important;
+}
+
+ion-card > .row{
+    border-top: 1px #e0e0e0 solid;
+}
+
+.list-avatar-page {
+  ion-note {
+    font-size: 12px;
+    align-self: flex-start;
+    margin-top: 14px;
+  }
+  .comment-content{
+    overflow: visible;
+    white-space: normal;
+  }
+  .list-header{
+    margin-bottom: 1px;
+  }
 }
 
 @media(min-width: 600px){
@@ -10,7 +34,7 @@ ion-card.selected{
     border-radius: 2px;
     font-size: 1.4rem;
     margin-left: 65px;
-    background: #fff;
+   /* background: #fff;*/
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 }
@@ -18,7 +42,6 @@ ion-card.selected{
 
 ion-card.selected, .card-ios {
    margin: 20px 100px 20px 100px;
-    
     width: calc(100% - 200px);
     border-radius: 2px;
     font-size: 1.4rem;

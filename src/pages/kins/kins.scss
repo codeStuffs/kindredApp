@@ -19,6 +19,7 @@ page-kins {
   }
   .kin-avatar {
     background-size: contain;
+    background-color: white;
    /* background: white url(../assets/leaf.png) no-repeat center;*/
     min-height: 100px;
   }
@@ -32,7 +33,8 @@ page-kins {
   @media(min-width: 700px) {
     .kin-avatar {
       background-size: contain;
-      background: white url(../assets/leaf.png) no-repeat center;
+      /*background: white url(../assets/leaf.png) no-repeat center;*/
+      background-color: white;
       min-height: 170px;
     }
   }
@@ -40,7 +42,8 @@ page-kins {
   @media(min-width: 1024px) {
     .kin-avatar {
       background-size: contain;
-      background: white url(../assets/leaf.png) no-repeat center;
+      background-color: white;
+      /*background: white url(../assets/leaf.png) no-repeat center;*/
       min-height: 198px;
     }
   }

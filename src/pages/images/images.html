@@ -14,14 +14,14 @@
 
 
 <ion-content>
-    <ion-grid>
-      <ion-row >
-        <ion-col col-4 col-sm-6 col-md-6 col-lg-3 *ngFor="let image of images" >
-          <ion-card (tap)="imageTapped(image)">
-               <img [src]="image.path">
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 col-sm-6 col-md-6 col-lg-3 *ngFor="let image of images">
+        <ion-card (tap)="imageTapped(image)">
+          <img [src]="image.path">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
 

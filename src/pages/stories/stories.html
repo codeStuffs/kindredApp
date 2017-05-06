@@ -25,7 +25,7 @@
 
   <div class="timeline  white-bg ">
     <!-- TIMELINE ITEM -->
-    <div class="timeline-item" *ngFor="let story of stories | async " (tap)="storyTapped($event, story)">
+    <div class="timeline-item" *ngFor="let story of stories" (tap)="storyTapped($event, story)">
       <div class="timeline-badge">
         <img class="avatar timeline-badge-userpic" [src]="story.authorPhoto">
       </div>
@@ -39,8 +39,8 @@
             </div>
             <!--  <div class="timeline-body-head-actions"> </div> -->
           </ion-card-title>
-          <div class="" *ngIf="story.other_content">
-            <img [src]="story.other_content"/>
+          <div class="" *ngIf="story.mediaUrl">
+            <img [src]="story.mediaUrl"/>
           </div>
           <ion-card-content class="timeline-body-content ">
 

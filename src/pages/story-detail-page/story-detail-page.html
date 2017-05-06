@@ -13,18 +13,88 @@
 </ion-header>
 
 
-<ion-content >
-  <ion-card  *ngIf="selectedStory" class="selected">
-  <div class="" *ngIf="selectedStory.other_content">
-    <img src="{{selectedStory.other_content}}"/>
+<ion-content class="list-avatar-page">
+  <ion-card *ngIf="selectedStory" class="selected">
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="selectedStory.userPhoto">
+      </ion-avatar>
+      <h2>
+        {{selectedStory.owner}}
+      </h2>
+    </ion-item>
+    <div class="" *ngIf="selectedStory.mediaUrl">
+      <img src="{{selectedStory.mediaUrl}}"/>
     </div>
     <ion-card-content>
-      <ion-card-title>
-        {{selectedStory.owner}}
-      </ion-card-title>
+
       <p>
-       {{selectedStory.body}}
+        {{selectedStory.body}}
       </p>
     </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div class="likes" *ngIf="selectedStory.starCount > 1">
+            {{selectedStory.starCount}} likes
+          </div>
+
+          <div class="likes" *ngIf="selectedStory.starCount < 1">
+            {{selectedStory.starCount}} like
+          </div>
+        </button>
+
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-left>
+          <ion-icon name='text'></ion-icon>
+          4 Comments
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-list>
+
+      <ion-list-header>Comments</ion-list-header>
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="../../assets/leaf.png">
+        </ion-avatar>
+        <h2>Woody</h2>
+        <p class="comment-content">This town ain't big enough for the two of us!</p>
+        <ion-note item-right>3:43 pm</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="../../assets/leaf.png">
+        </ion-avatar>
+        <h2>Buzz Lightyear</h2>
+        <p>My eyeballs could have been sucked from their sockets!</p>
+        <ion-note item-right>1:12 pm</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="../../assets/leaf.png">
+        </ion-avatar>
+        <h2>Jessie</h2>
+        <p>Well aren't you just the sweetest space toy I ever did meet!</p>
+        <ion-note item-right>10:03 am</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="../../assets/leaf.png">
+        </ion-avatar>
+        <h2>Mr. Potato Head</h2>
+        <p>You're not turning me into a Mashed Potato.</p>
+        <ion-note item-right>5:47 am</ion-note>
+      </ion-item>
+
+    </ion-list>
   </ion-card>
 </ion-content>

@@ -86,8 +86,7 @@ export class NewChatPage {
      });*/
     let value = this.searchPattern.getValue();
     const tip = kins.filter((kin) => {
-      console.log(value);
-      console.log(kin);
+
       if (typeof value !== "undefined") {
         if (typeof kin.firstname !== "undefined" && typeof kin.middleName !== "undefined" && typeof kin.lastName !== "undefined") {
           return kin.firstname.toLowerCase().indexOf(value.toLowerCase().trim()) > -1

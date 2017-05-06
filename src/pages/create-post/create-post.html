@@ -41,13 +41,15 @@
       </ion-list>
       <ion-row no-padding>
         <ion-col text-center>
-          <button ion-button clear icon-only type="button" outline full round color="limegreen" icon-center (click)="choosePicture()">
+          <button ion-button clear icon-only type="button" outline full round color="limegreen" icon-center
+                  (click)="choosePicture()">
             <ion-icon name='image'></ion-icon>
 
           </button>
         </ion-col>
         <ion-col text-center>
-          <button ion-button clear icon-only type="button" outline full round color="limegreen" icon-center>
+          <button ion-button clear icon-only type="button" outline full round color="limegreen" icon-center
+                  (click)="takePicture()">
             <ion-icon name='camera'></ion-icon>
 
           </button>
@@ -69,10 +71,18 @@
     </form>
   </ion-card>
 
-  <ion-grid >
+  <ion-grid>
     <ion-row *ngFor="let row of grid">
       <ion-col width-50 *ngFor="let photo of row">
         <img src="{{photo}}">
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="base64Img">
+      <ion-col col-4 col-sm-6 col-md-6 col-lg-3>
+        <ion-card>
+          <img [src]="base64Img">
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

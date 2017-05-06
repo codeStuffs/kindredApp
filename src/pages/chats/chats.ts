@@ -71,7 +71,6 @@ export class ChatsPage implements OnInit {
       const myChats = [];
       chats.forEach(chat => {
         const myChat = chat.membersId.find(myId => myId === uid);
-        console.log(myChat);
         if (myChat) {
           chat.title   = "";
           chat.picture = "";

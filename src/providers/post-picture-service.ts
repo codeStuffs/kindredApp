@@ -19,10 +19,10 @@ export class PostPictureService {
   select () : Promise<any> {
 
     let options = {
-      maximumImagesCount: 2,
-      width             : 500,
-      height            : 500,
-      quality           : 75
+      maximumImagesCount: 1,
+      /* width             : 500,
+       height            : 500,
+       quality           : 75*/
     };
 
     if (!this.platform.is('cordova') || !this.platform.is('mobile')) {
@@ -38,7 +38,7 @@ export class PostPictureService {
 
     return this.imagePicker.getPictures(options)
       .then((URL : string) => {
-          return URL; //this.convertURLtoBlob(URL);
+          return URL; //this.convertURLtoBlob(URL); //URL; //
         }, (err) => {return err}
       ).catch((e) => { return e});
   }
@@ -58,7 +58,8 @@ export class PostPictureService {
           reject(e)
         }
       };
-    })
+      image.src    = URL;
+    });
   }
 
   convertImageToDataURI (image : HTMLImageElement) : string {

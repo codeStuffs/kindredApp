@@ -11,13 +11,8 @@
 
   <ion-toolbar *ngIf="!searching">
     <ion-title>Kins</ion-title>
-    <ion-buttons left>
-      <button ion-button class="dismiss-button" (click)="viewCtrl.dismiss()">
-        <ion-icon name="close"></ion-icon>
-      </button>
-    </ion-buttons>
     <ion-buttons end>
-      <button ion-button class="search-button" (tap)="searching = true">
+      <button ion-button icon-only color="royal" class="search-button" (tap)="searching = true">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
