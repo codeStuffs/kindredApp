@@ -50,15 +50,6 @@ import { PostPictureService } from "../providers/post-picture-service";
 import { ImagePicker } from "@ionic-native/image-picker";
 
 
-// AF2 Settings
-export const firebaseConfig = {
-  apiKey           : "AIzaSyDmEphnRTKm_iz8d2VJWmPYxYqsY9SI3dg",
-  authDomain       : "the-kindred-app.firebaseapp.com",
-  databaseURL      : "https://the-kindred-app.firebaseio.com",
-  projectId        : "the-kindred-app",
-  storageBucket    : "the-kindred-app.appspot.com",
-  messagingSenderId: "354373910035"
-};
 
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Password,
