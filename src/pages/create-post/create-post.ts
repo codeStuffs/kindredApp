@@ -141,7 +141,7 @@ export class CreatePostPage {
     }
 
     this.camera.getPicture(options).then((dataURI) => {
-      if (this.photos.length > 0) this.photos = [];
+
       this.base64Img = "data:image/jpeg;base64," + dataURI;
       const blob     = this.postPictureService.convertDataURIToBlob(dataURI);
       this.blob      = blob;
@@ -171,15 +171,12 @@ export class CreatePostPage {
         rowNum++;
       }
       this.postPictureService.convertURLtoBlob(file).then(blob => {
-        console.log(typeof blob);
+
         this.blob = blob;
       }, err => {
-
-        console.error(err);
         this.handleError(err);
       }).catch(err => {
         this.handleError(err);
-        console.log(err);
       });
 
       this.loading.dismiss();
@@ -187,7 +184,7 @@ export class CreatePostPage {
     }, (e : Error) => {
       this.handleError(e);
     }).catch((err) => {
-      console.log(err);
+      this.handleError(err);
     })
   }
 
@@ -208,9 +205,9 @@ export class CreatePostPage {
             .then(() => {
               this.tale = {body: ''};
 
-              this.viewCtrl.dismiss().then(() => {
+        this.viewCtrl.dismiss();
 
-              });
+        this.loading.dismiss();
             }, (error) => {
               this.handleError(error);
             }).catch((err) => {
@@ -223,10 +220,8 @@ export class CreatePostPage {
       this.storyService.createTale(familyCount, familyId, this.tale, '', storyKey)
         .then(() => {
           this.tale = {body: ''};
-          this.viewCtrl.dismiss()
-            .then(() => {
-              this.loading.dismiss();
-            });
+      this.viewCtrl.dismiss();
+    this.loading.dismiss();
         }, (error) => {
           this.handleError(error);
         }).catch((err) => {

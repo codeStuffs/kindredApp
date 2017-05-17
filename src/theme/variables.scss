@@ -37,9 +37,9 @@ $tabs-tab-color-inactive: $primary-color-text;
 // iOS only Sass variables can go here
 .content-ios {
   color: #000;
-  background-color: #5af1a5 !important;
+  background-color: rgba(90, 241, 165, 0.86)!important;//#5af1a5 !important;
   background-image: url(../assets/tree.svg);
-  background-position: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -52,9 +52,9 @@ $tabs-tab-color-inactive: $primary-color-text;
 $tabs-md-tab-color-active: #ffffff;
 .content-md {
   color: #000;
-  background-color: #5af1a5 !important;
+  background-color: rgba(77, 207, 142, 0.86) !important;
   background-image: url(../assets/tree.svg);
-  background-position: cover;
+  /*background-position: center;*/
   background-repeat: no-repeat;
   background-size: cover;
 }

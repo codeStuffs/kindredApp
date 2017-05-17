@@ -72,13 +72,14 @@
   </ion-card>
 
   <ion-grid>
+  <div *ngIf="!base64Img">
     <ion-row *ngFor="let row of grid">
       <ion-col width-50 *ngFor="let photo of row">
         <img src="{{photo}}">
       </ion-col>
     </ion-row>
-
-    <ion-row *ngIf="base64Img">
+</div>
+    <ion-row *ngIf="base64Img || !photos">
       <ion-col col-4 col-sm-6 col-md-6 col-lg-3>
         <ion-card>
           <img [src]="base64Img">

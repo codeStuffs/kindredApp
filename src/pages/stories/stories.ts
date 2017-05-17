@@ -145,6 +145,8 @@ export class StoriesPage implements OnInit {
 
    createPostTapped (event) {
     let createPost = this.modalCtrl.create(CreatePostPage);
+
+
     createPost.present();
   }
 
