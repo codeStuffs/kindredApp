@@ -14,16 +14,24 @@ page-messages {
 
   .scroll-content {
     padding-left: 10px !important;
-    padding-right: 13px !important;
-    padding-bottom: 15px !important;
+  /*  padding-right: 13px !important;*/
+    padding-bottom: 5px !important;
+    right: 2px;
   }
 
   .content-ios {
     > .scroll-content {
-      padding-bottom: 0px !important;
+      padding-bottom: 0 !important;
+      padding-right: 0 !important;
     }
   }
 
+
+  .content-md{
+    > .scroll-content{
+      padding-right: 0!important;
+    }
+  }
   .messages-page-content {
     > .scroll-content {
       margin: 42px -15px 0px;
@@ -291,7 +299,7 @@ page-messages {
       height: 50px;
       font-size: 17px;
       margin: auto;
-      padding-bottom: 25px;
+     /* padding-bottom: 25px;*/
     }
   }
 
