@@ -10,6 +10,9 @@ import { Subscriber } from "rxjs/Subscriber";
 import firebase from "firebase";
 import _ from "underscore";
 import { Subscription } from "rxjs/Subscription";
+
+import { TabsPage } from "../tabs/tabs";
+
 /*
  Generated class for the ChatsMessages page.
 
@@ -22,6 +25,7 @@ import { Subscription } from "rxjs/Subscription";
 })
 export class ChatsMessagesPage implements OnInit, OnDestroy {
   selectedChat : Chat;
+  tabs : TabsPage;
   messageData : Array<any> = [];
   title : string;
   picture : string;
@@ -63,6 +67,7 @@ export class ChatsMessagesPage implements OnInit, OnDestroy {
 
 
   ngOnInit () {
+
     this.autoScroller = this.autoScroll();
     this.subscribeMessages();
 
@@ -122,7 +127,6 @@ export class ChatsMessagesPage implements OnInit, OnDestroy {
       }
     });
 
-    console.debug(groups);
     return Observable.of(groups);
 
   }
@@ -151,8 +155,6 @@ export class ChatsMessagesPage implements OnInit, OnDestroy {
 
   autoRemoveScrollListener<T> (messageCount : number) : Observable<T> {
     return Observable.create((observer : Subscriber<T>) => {
-      console.log(this.messageData);
-      console.info(messageCount);
       const messages = this.angFire.database.list('/chat-messages/' + this.selectedChat.$key);
       messages.subscribe({
         next : (messages) => {
@@ -207,20 +209,28 @@ export class ChatsMessagesPage implements OnInit, OnDestroy {
   ionViewDidLoad () {
     console.log('ionViewDidLoad ChatsMessagesPage');
 
-    this.scrollControll.valueChanges.debounceTime(1000).subscribe(search => {
+    let textAreaH             = this.el.nativeElement.getElementsByTagName('textarea')[0];
+    textAreaH.style.maxHeight = 135 + 'px';
+    let scrollContentB = this.el.nativeElement.getElementsByClassName('scroll-content')[0];
+    scrollContentB.style.marginBottom =  55 + "px";
+
+    this.scrollControll.valueChanges.debounceTime(100).subscribe(search => {
       let textAreaH      = this.el.nativeElement.getElementsByTagName('textarea')[0];
       let scrollContentB = this.el.nativeElement.getElementsByClassName('scroll-content')[0];
-      let messageBtn     = this.el.nativeElement.getElementsByClassName('message-editor-button')[0];
+      /* let messageBtn     = this.el.nativeElement.getElementsByClassName('message-editor-button')[0];*/
 
-      if (textAreaH.scrollHeight > 20) {
-        scrollContentB.style.marginBottom = textAreaH.scrollHeight + 100 + "px";
-        if (messageBtn) messageBtn.style.marginBottom = "-" + (textAreaH.scrollHeight + 1) + "px";
+      if (textAreaH.scrollHeight > 20 && textAreaH.scrollHeight < 135) {
+        scrollContentB.style.marginBottom = textAreaH.scrollHeight + 37 + "px";
+        //if (messageBtn) messageBtn.style.marginBottom = "-" + (textAreaH.scrollHeight + 1) + "px";
+        if (textAreaH.value === "") textAreaH.style.height = 20 + "px";
+      } else if (textAreaH.scrollHeight > 20 && textAreaH.scrollHeight > 135) {
+        scrollContentB.style.marginBottom = 171 + "px";
         if (textAreaH.value === "") textAreaH.style.height = 20 + "px";
       }
       if (textAreaH.scrollHeight === 20) {
-        scrollContentB.style.marginBottom = 70 + "px";
-        if (this.message !== "" || typeof messageBtn !== "undefined")
-          messageBtn.style.paddingBottom = 0 + 'px';
+        scrollContentB.style.marginBottom = 55 + "px";
+        //if (this.message !== "" || typeof messageBtn !== "undefined")
+        // messageBtn.style.paddingBottom = 0 + 'px';
       }
 
     });
