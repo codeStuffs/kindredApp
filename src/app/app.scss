@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/v2/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -16,66 +15,94 @@
 // automatically applied to the <body> element in the app.
 
 ion-app.ios, ion-app.md {
-    background-color: #5af1a5; //56ca96
-    background-image: url(../assets/tree.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  //#5af1a5; //56ca96
+  background: rgba(90, 241, 165, 0.86) url(../assets/tree.svg) no-repeat;
+  background-size: cover;
 }
-.toolbar-title{
+
+.toolbar-title {
   color: #fff;
 }
 
-.bar-button-default-md, .bar-button-default-ios{
+.bar-button-default-md, .bar-button-default-ios {
   color: #ffffff;
 }
+
 .preloader8 {
-   width:30px;
-   height:30px;
-   display:inline-block;
-   padding:0px;
-   text-align:left;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  padding: 0px;
+  text-align: left;
 }
+
 .preloader8 span {
-   position:absolute;
-   display:inline-block;
-   width:30px;
-   height:30px;
-   border-radius:100%;
-   background:#000000;
-   -webkit-animation:preloader8 1.6s linear infinite;
-   animation:preloader8 1.6s linear infinite;
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: #000000;
+  -webkit-animation: preloader8 1.6s linear infinite;
+  animation: preloader8 1.6s linear infinite;
 }
+
 .preloader8 span:last-child {
-   animation-delay:-0.8s;
-   -webkit-animation-delay:-0.8s;
+  animation-delay: -0.8s;
+  -webkit-animation-delay: -0.8s;
 }
+
 @keyframes preloader8 {
-   0% {transform: scale(0, 0);opacity:0.5;}
-   100% {transform: scale(1, 1);opacity:0;}
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
 }
+
 @-webkit-keyframes preloader8 {
-   0% {-webkit-transform: scale(0, 0);opacity:0.5;}
-   100% {-webkit-transform: scale(1, 1);opacity:0;}
+  0% {
+    -webkit-transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    opacity: 0;
+  }
 }
 
-@media only screen and (min-height: 600px) and (min-width: 768px)
-{
-/*.modal-wrapper {
+@media only screen and (min-height: 600px) and (min-width: 768px) {
+  /*.modal-wrapper {
+      position: absolute;
+      top: calc(0% - (0px/2))!important;
+      left: calc(0% - (0px/2));
+      width: 100%!important;
+      height: 100%;
+  }
+  */
+  page-view-images > .modal-wrapper {
     position: absolute;
-    top: calc(0% - (0px/2))!important;
-    left: calc(0% - (0px/2));
-    width: 100%!important;
+    top: calc(0% - (0px / 2)) !important;
+    left: calc(0% - (0px / 2));
+    width: 100% !important;
     height: 100%;
-}
-*/
-page-view-images >	.modal-wrapper {
-    position: absolute;
-    top: calc(0% - (0px/2))!important;
-    left: calc(0% - (0px/2));
-    width: 100%!important;
-    height: 100%;
-}
+  }
 
 }
 
+body::-webkit-scrollbar {
+  width: 0.89em;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #0a0909;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: yellow;
+  outline: 1px solid yellowgreen;
+}
 
